@@ -9,18 +9,26 @@ A super simple FastAPI application that allows students to view and sign up for 
 
 ## Getting Started
 
-1. Install the dependencies:
+1. Create and activate a virtual environment, then install the dependencies:
 
-   ```
-   pip install fastapi uvicorn
-   ```
-
-2. Run the application:
-
-   ```
-   python app.py
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate
+   pip install -r ../requirements.txt
    ```
 
+2. Initialize the database and seed initial data:
+
+   ```bash
+   # Creates a local SQLite DB file and seeds initial activities
+   python src/seed_db.py
+   ```
+
+3. Run the application using Uvicorn:
+
+   ```bash
+   uvicorn src.app:app --reload --host 0.0.0.0 --port 8000
+   ```
 3. Open your browser and go to:
    - API documentation: http://localhost:8000/docs
    - Alternative documentation: http://localhost:8000/redoc
@@ -47,4 +55,4 @@ The application uses a simple data model with meaningful identifiers:
    - Name
    - Grade level
 
-All data is stored in memory, which means data will be reset when the server restarts.
+Data is now persisted in `school.db` (SQLite). The in-memory store has been replaced by a SQLAlchemy backend, so activity and participant data will persist across restarts. To reset the database, delete `school.db` and re-run `python src/seed_db.py`.

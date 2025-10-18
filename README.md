@@ -14,3 +14,6 @@ Remember, it's self-paced so feel free to take a break! ☕️
 
 &copy; 2025 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
 
+
+Note: The exercise now includes a persistent SQLite database and updated API; see `src/README.md` for setup and run instructions.
+
